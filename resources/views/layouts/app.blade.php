@@ -32,8 +32,15 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
+                    <ul class="navbar-nav ml-5 mr-auto">
+                        @auth
+                        <li class="navbar-item mr-3">
+                            <a class="nav-link" href="/dashboard/products">Товары</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="nav-link" href="/dashboard/users">Пользователи</a>
+                        </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -72,7 +79,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 container">
             @yield('content')
         </main>
     </div>
