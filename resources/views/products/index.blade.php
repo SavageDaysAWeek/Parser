@@ -14,16 +14,18 @@
         @foreach ($products as $product)
         <tr>
             <td>
-                <img src="/storage/{{ $product->image }}" alt="{{ $product->name }}">
+                <img height="50" src="{{ $product->image }}" alt="{{ $product->name }}">
             </td>
             <td>{{ $product->name }}</td>
             <td>{{ $product->brand->name }}</td>
             <td>{{ $product->price }}</td>
             <td>{{ $product->dimensions }}</td>
-            <td>{{ $product->in_stock }}</td>
+            <td>{{ $product->in_stock ? 'В наличии' : 'Нет в наличии' }}</td>
         </tr>
         @endforeach
     </tbody>
 </table>
-{{ $products->links() }}
+<div class="d-flex justify-content-center">
+    {{ $products->links() }}
+</div>
 @endsection
