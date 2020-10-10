@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Users</li>
+    </ol>
+</nav>
 <table class="table table-striped table-hover">
     <thead>
         <th>Имя</th>

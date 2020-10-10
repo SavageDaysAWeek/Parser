@@ -26,9 +26,16 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('/dashboard')->middleware('auth')->group(function() {
+    Route::middleware('admin')->group(function() {
+        Route::resources([
+            'products' => ProductController::class,
+            'users' => UserController::class
+        ]);
+    });
     Route::get('/', [HomeController::class, 'dashboard']);
-    Route::resource('products', ProductController::class);
-    Route::resource('users', UserController::class);
+
+    Route::resource('products', ProductController::class)->only(['index', 'show']);
+    Route::resource('users', UserController::class)->only(['index', 'show']);
 });
 
-Route::get('/parsing/{startPage?}/{count?}', [ParsingController::class, 'parse']);
+Route::get('/parsing/{startPage?}/{count?}', [ParsingController::class, 'parse'])->middleware('auth');
