@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="/dashboard/products">Products</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Product</li>
+    </ol>
+</nav>
 <div class="card col-12 col-md-8 col-lg-6 col-xl-4 mx-auto">
     @if ($product->image)
     <img width="300" class="mx-auto" src="/storage/{{ $product->image }}" alt="{{ $product->name }}">
