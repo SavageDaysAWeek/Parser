@@ -45,7 +45,7 @@ class ParsingController extends Controller
         $name = $fileName . '.' . $extension;
         Storage::put("public/products/$name", $content);
 
-        return "/storage/products/$name";
+        return "products/$name";
     }
 
     public function parse($startPage = 1, $count = 1)
